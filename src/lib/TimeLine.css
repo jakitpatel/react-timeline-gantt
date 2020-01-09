@@ -133,7 +133,7 @@
 .timeLine-main-data-task-label {
   position: absolute;
   width: 150px;
-  cursor: col-resize;
+  cursor: default;
   display: flex;
   flex-direction: column;
   justify-content: center;
