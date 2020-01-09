@@ -169,6 +169,9 @@ export default class DataTask extends Component{
                     onMouseDown={(e)=>this.onCreateLinkMouseDown(e,LINK_POS_RIGHT)}
                     onTouchStart={(e)=>this.onCreateLinkTouchStart(e,LINK_POS_RIGHT)}
                 />
+            </div>
+            <div className="timeLine-main-data-task-label" style={{top:0,left:style.width+15,height:style.height}}>
+                    {Config.values.dataViewPort.task.showLabel?this.props.item.name:""}
             </div>  
         </div>)
           

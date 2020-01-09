@@ -267,7 +267,7 @@ class App extends Component {
         </div>
         <div className="time-line-container">
           <TimeLine
-            // config={config}
+            config={config}
             data={this.state.data}
             links={this.state.links}
             onHorizonChange={this.onHorizonChange}

@@ -130,6 +130,17 @@
   text-align: center;
 }
 
+.timeLine-main-data-task-label {
+  position: absolute;
+  width: 150px;
+  cursor: col-resize;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color:black;
+  text-align:left
+}
+
 .timeLine-main-data-task-side {
   position: absolute;
   width: 10px;

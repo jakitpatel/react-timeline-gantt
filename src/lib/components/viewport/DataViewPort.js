@@ -15,7 +15,6 @@ export class DataRow extends Component{
         <div className="timeLine-main-data-row" 
             style={{...Config.values.dataViewPort.rows.style,top:this.props.top,height:this.props.itemheight}}>
         {this.props.children}
-            Label Display
         </div>)    
     }
 }
