@@ -158,7 +158,6 @@ export default class DataTask extends Component{
                 />
             </div>
             <div style={{overflow:'hidden'}}>
-            {Config.values.dataViewPort.task.showLabel?this.props.item.name:""}
             </div>
             <div className="timeLine-main-data-task-side" 
                 style={{top:0,left:style.width-3,height:style.height}}
