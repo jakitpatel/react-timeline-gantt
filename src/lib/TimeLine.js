@@ -49,7 +49,7 @@ class TimeLine extends Component {
       scrollLeft: 0,
       scrollTop: 0,
       numVisibleRows: 40,
-      numVisibleDays: 60,
+      numVisibleDays: 30,
       dayWidth: dayWidth,
       interactiveMode: false,
       taskToCreate: null,

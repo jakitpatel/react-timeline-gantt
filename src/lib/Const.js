@@ -14,7 +14,7 @@ export const VIEW_MODE_MONTH        = "month"
 export const VIEW_MODE_YEAR         = "year"
 
 export const DAY_YEAR_MODE          =4
-export const DAY_MONTH_MODE         =24
+export const DAY_MONTH_MODE         =38
 export const DAY_WEEK_MODE          =480 //each hour 20 px
 export const HOUR_DAY_WEEK          =20;
 export const DAY_DAY_MODE           =1440 //each hour 60 px
