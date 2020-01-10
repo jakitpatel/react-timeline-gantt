@@ -140,40 +140,43 @@ export default class DataTask extends Component{
     render(){
         let style=this.calculateStyle()
         return (
-        <div 
-            onMouseDown={(e)=>this.doMouseDown(e,MODE_MOVE)}
-            onTouchStart={(e)=>this.doTouchStart(e,MODE_MOVE)}
-            onClick={(e)=>{this.props.onSelectItem(this.props.item)}}
-            style={style}>
-            <div
-                className="timeLine-main-data-task-side" 
-                style={{top:0,left:-4,height:style.height}}
-                onMouseDown={(e)=>this.doMouseDown(e,MOVE_RESIZE_LEFT)}
-                onTouchStart={(e)=>this.doTouchStart(e,MOVE_RESIZE_LEFT)}
-            >
+        <React.Fragment>
+            <div 
+                onMouseDown={(e)=>this.doMouseDown(e,MODE_MOVE)}
+                onTouchStart={(e)=>this.doTouchStart(e,MODE_MOVE)}
+                onClick={(e)=>{this.props.onSelectItem(this.props.item)}}
+                style={style}>
                 <div
-                    className="timeLine-main-data-task-side-linker" 
-                    onMouseUp={(e)=>this.onCreateLinkMouseUp(e,LINK_POS_LEFT)}
-                    onTouchEnd={(e)=>this.onCreateLinkTouchEnd(e,LINK_POS_LEFT)}
-                />
+                    className="timeLine-main-data-task-side" 
+                    style={{top:0,left:-4,height:style.height}}
+                    onMouseDown={(e)=>this.doMouseDown(e,MOVE_RESIZE_LEFT)}
+                    onTouchStart={(e)=>this.doTouchStart(e,MOVE_RESIZE_LEFT)}
+                >
+                    <div
+                        className="timeLine-main-data-task-side-linker" 
+                        onMouseUp={(e)=>this.onCreateLinkMouseUp(e,LINK_POS_LEFT)}
+                        onTouchEnd={(e)=>this.onCreateLinkTouchEnd(e,LINK_POS_LEFT)}
+                    />
+                </div>
+                <div style={{overflow:'hidden'}}>
+                </div>
+                <div className="timeLine-main-data-task-side" 
+                    style={{top:0,left:style.width-3,height:style.height}}
+                    onMouseDown={(e)=>this.doMouseDown(e,MOVE_RESIZE_RIGHT)}
+                    onTouchStart={(e)=>this.doTouchStart(e,MOVE_RESIZE_RIGHT)}
+                >
+                    <div
+                        className="timeLine-main-data-task-side-linker" 
+                        onMouseDown={(e)=>this.onCreateLinkMouseDown(e,LINK_POS_RIGHT)}
+                        onTouchStart={(e)=>this.onCreateLinkTouchStart(e,LINK_POS_RIGHT)}
+                    />
+                </div>  
             </div>
-            <div style={{overflow:'hidden'}}>
-            </div>
-            <div className="timeLine-main-data-task-side" 
-                style={{top:0,left:style.width-3,height:style.height}}
-                onMouseDown={(e)=>this.doMouseDown(e,MOVE_RESIZE_RIGHT)}
-                onTouchStart={(e)=>this.doTouchStart(e,MOVE_RESIZE_RIGHT)}
-            >
-                <div
-                    className="timeLine-main-data-task-side-linker" 
-                    onMouseDown={(e)=>this.onCreateLinkMouseDown(e,LINK_POS_RIGHT)}
-                    onTouchStart={(e)=>this.onCreateLinkTouchStart(e,LINK_POS_RIGHT)}
-                />
-            </div>
-            <div className="timeLine-main-data-task-label" style={{top:0,left:style.width+15,height:style.height}}>
+            <div className="timeLine-main-data-task-label" style={{top:0,left:style.width+style.left+15,height:style.height}}>
                     {Config.values.dataViewPort.task.showLabel?this.props.item.name:""}
-            </div>  
-        </div>)
+            </div>
+        </React.Fragment>
+        )
           
     }
 }
