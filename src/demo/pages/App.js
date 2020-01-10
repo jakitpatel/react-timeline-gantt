@@ -77,13 +77,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     let result = Generator.generateData();
-    this.data = result.data;
+    //this.data = result.data;
+    //this.data = [{"color":"#4285F4","id":"1","name":"Webinar Reminder 1","start":"2020-01-06T00:00:00Z","end":"2020-01-10T00:00:00Z","dependencies":{"from":0,"to":2}},{"color":"#DB4437","isFirstRow":0,"isLastRow":0,"id":"2","progress":100,"name":"Webinar Reminder 2","start":"2020-01-10T00:00:00Z","end":"2020-01-15T00:00:00Z","dependencies":{"from":1,"to":3}},{"color":"#F4B400","isFirstRow":0,"isLastRow":0,"id":"3","progress":100,"name":"Starting in 1 hour","start":"2020-01-15T00:00:00Z","end":"2020-01-16T00:00:00Z","dependencies":{"from":2,"to":4}},{"color":"#0F9D58","isFirstRow":0,"isLastRow":1,"id":"4","progress":100,"name":"Thank You [Private]","start":"2020-01-16T00:00:00Z","end":"2020-01-21T00:00:00Z","dependencies":{"from":3,"to":5}}];
+    //this.data = [{id:1,start:new Date(), end:new Date()+1 ,name:'Demo Task 1',color:'#4285F4'},{id:2,start:new Date()+5, end:new Date()+10 ,name:'Demo Task 2',color:'#DB4437'}]
+    let d1 = new Date();
+    let d2 = new Date();
+    d2.setDate(d2.getDate() + 5);
+    let d3 = new Date();
+    d3.setDate(d3.getDate() + 8);
+    let d4 = new Date();
+    d4.setDate(d4.getDate() + 20);
+    this.data = [
+      {
+        id: 1,
+        start: d1,
+        end: d2,
+        name: "Demo Task 1"
+      },
+      {
+        id: 2,
+        start: d3,
+        end: d4,
+        name: "Demo Task 2",
+        color: "orange"
+      }
+    ];
+    let newlinks = [{ id: 1, start: 1, end: 2 }];
     this.state = {
       itemheight: 20,
       data: [],
       selectedItem: null,
       timelineMode: "month",
-      links: result.links,
+      links: newlinks, //result.links,
       nonEditableName: false
     };
   }

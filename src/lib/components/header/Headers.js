@@ -101,13 +101,13 @@ export default class Header extends PureComponent {
         }
         return <div key={key} style={{position:'absolute',height:20,left:left,width:width}}> {result}</div>;
     }
+
     getBox(date,mode,lastLeft){
         let increment=this.getModeIncrement(date,mode)*this.props.dayWidth
         if(!lastLeft){
             let starDate=this.getStartDate(date,mode)
             starDate=starDate.startOf('day')
-            //let now =moment().startOf('day')
-            let now =moment().startOf('week').add(1, 'days');
+            let now =moment().startOf('day')
             let daysInBetween=starDate.diff(now,'days');
             lastLeft=DateHelper.dayToPosition(daysInBetween,this.props.nowposition,this.props.dayWidth);
      
