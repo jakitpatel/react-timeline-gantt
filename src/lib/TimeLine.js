@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from  'moment';
 import PropTypes from "prop-types";
 import VerticalSpliter from "libs/components/taskList/VerticalSpliter";
 import Header from "libs/components/header/Headers";
@@ -37,12 +38,17 @@ class TimeLine extends Component {
 
     let dayWidth = this.getDayWidth(this.props.mode);
     Config.load(this.props.config);
+
+    let nowNewPosition = this.getNowPosition(this.props.mode,dayWidth);
+
     //Initialising state
     this.state = {
       currentday: 0, //Day that is in the 0px horizontal
       //nowposition is the reference position, this variable support the infinit scrolling by accumulatning scroll times and redefining the 0 position
       // if we accumulat 2 scroll to the left nowposition will be 2* DATA_CONTAINER_WIDTH
-      nowposition: 0,
+      //nowposition: 2* DATA_CONTAINER_WIDTH,
+      //nowposition: 0,
+      nowposition: nowNewPosition,
       startRow: 0, //
       endRow: 10,
       sideStyle: { width: 200 },
@@ -58,6 +64,24 @@ class TimeLine extends Component {
       size: { width: 1, height: 1 },
       changingTask: null
     };
+  }
+
+  getNowPosition(mode,dayWidth) {
+  	let now = moment().startOf('day');
+	let startWeekDay =moment().startOf('week').add(1, 'days');
+	let daysInBetween = now.diff(startWeekDay,'days');
+  	switch (mode) {
+      case VIEW_MODE_DAY:
+        return 0;
+      case VIEW_MODE_WEEK:
+        return 0;
+      case VIEW_MODE_MONTH:
+        return daysInBetween*dayWidth;
+      case VIEW_MODE_YEAR:
+        return 0;
+      default:
+        return daysInBetween*dayWidth;
+    }
   }
 
   ////////////////////

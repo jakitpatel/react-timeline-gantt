@@ -104,7 +104,7 @@ class App extends Component {
     ];
     let newlinks = [{ id: 1, start: 1, end: 2 }];
     this.state = {
-      itemheight: 20,
+      itemheight: 40,
       data: [],
       selectedItem: null,
       timelineMode: "month",
